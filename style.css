@@ -1,0 +1,21 @@
+h3 {
+    display: block;
+}
+
+input {
+    display: inline-block;
+}
+label {
+    display: block;
+}
+
+.main {
+    /* position: absolute;
+    display: block;
+    align: center; */
+    margin: auto;
+    width: 600px;
+}
+h2 {
+    text-align: center;
+}
