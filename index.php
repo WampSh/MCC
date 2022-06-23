@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,61 +15,60 @@
     <head>
         <h2 class="m-3 mb-5">Какой картой лучше платить</h2>
     </head>
-    <div>
+    <main>
+       
+            <div class="allert"><H1>Пользователь <?php echo $_SESSION['username'] ?></H1></div>
+      
         <div class="main">
+        <form action="rqstlisten.php" method="post">
             <h3>Поиск по категории покупки:</h3>
             <div class="cat-search">
-                <form action="rqstlisten.php" method="post">
-                    <div class="input-group">
-                        <select class="form-select" name="cat">
-                            <option value="1">Супермаркет</option>
-                            <option value="2">Спорт товары</option>
-                            <option value="3">Развлечения</option>
-                        </select>
-                        <input class="btn btn-outline-secondary" type="submit" value="Найти">
-                    </div>
-                <!-- </form> -->
+                <div class="input-group">
+                    <select class="form-select" name="cat">
+                        <option value="1">Супермаркет</option>
+                        <option value="2">Спорт товары</option>
+                        <option value="3">Развлечения</option>
+                    </select>
+                </div>
             </div>
             <br>
 
             <h3>Поиск по магазину:</h3>
             <div class="shop-search">
-                <!-- <form action="#" method="post"> -->
-                    <div class="input-group">
-                        <select class="form-select" name="shop">
-                            <option value="1">д.26 к.1</option>
-                            <option value="2">"Вкусняшка" 28 к.1</option>
-                            <option value="3">Дикси</option>
-                        </select>
-                        <input class="btn btn-outline-secondary" type="submit" value="Найти">
-                    </div>
-                <!-- </form> -->
+                <div class="input-group">
+                    <select class="form-select" name="shop">
+                        <option value="1">д.26 к.1</option>
+                        <option value="Вкусняшка">"Вкусняшка" 28 к.1</option>
+                        <option value="Дикси">Дикси</option>
+                    </select>
+                </div>
             </div>
             <br>
 
             <h3>Поиск по Карте:</h3>
             <div class="card-search">
-                <!-- <form action="rqstlisten.php" method="post"> -->
-                    <div class="input-group">
-                        <select class="form-select" name="card">
-                            <option selected>Поиск по карте</option>
-                            <option value="1">Тинькофф Дима</option>
-                            <option value="2">Тинькофф Оля</option>
-                            <option value="3">Хомяк</option>
-                        </select>
-                        <input class="btn btn-outline-secondary" type="submit" value="Найти">
-                    </div>
-                <!-- </form> -->
+                <div class="input-group">
+                    <select class="form-select" name="card">
+                        <option selected>Поиск по карте</option>
+                        <option value="1">Тинькофф Дима</option>
+                        <option value="2">Тинькофф Оля</option>
+                        <option value="3">Хомяк</option>
+                    </select>
+                </div>
             </div>
             <br>
 
             <h3>Поиск по MCC:</h3>        
             <div class="mcc-search">
-                <form action="rqstlisten.php" method="post">
-                    <input type="text" name="mcc">
-                    <input class="btn btn-outline-secondary" type="submit" value="Найти">
-                </form>
+                    <input class="form-select form-input" type="text" name="mcc">
+                    <input class="btn-outline-secondary btn mt-3" type="submit" value="Найти">
+                    <a href="addshop.php" class="add-shop btn-outline-secondary btn mt-3">Добавить магазин</a>
+                    <a href="addcard.php" class="add-shop btn-outline-secondary btn mt-3">Добавить карту</a>
+                    <a href="auth.php" class="add-shop btn-outline-secondary btn mt-3">Войти</a>
             </div>
+        </form>
+        
+
         </div>
     </main>
     <footer>

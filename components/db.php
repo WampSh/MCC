@@ -1,7 +1,7 @@
 <?php
 $dbhost = "wamps.beget.tech";
 $dbuser = "wamps_mcc";
-$dbpass = "i6lRSnf5";
+$dbpass = "";
 $dbname = "wamps_mcc";
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 $mysqli->set_charset("utf-8");

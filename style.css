@@ -4,18 +4,26 @@ h3 {
 
 input {
     display: inline-block;
+    padding: 1em 1em;
 }
 label {
     display: block;
 }
 
 .main {
-    /* position: absolute;
-    display: block;
-    align: center; */
     margin: auto;
     width: 600px;
 }
 h2 {
     text-align: center;
 }
+.form-input{
+    background-image: none;
+}
+.reg, .hiden{
+    display: none;
+}
+.regon{
+    cursor: pointer;
+}
+
