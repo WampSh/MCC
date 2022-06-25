@@ -18,7 +18,23 @@ h2 {
     text-align: center;
 }
 .form-input{
-    background-image: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: 1px solid #ced4da;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.375rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: inherit;
+}
+
+.form-input:focus{
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 .reg, .hiden{
     display: none;
@@ -26,4 +42,44 @@ h2 {
 .regon{
     cursor: pointer;
 }
-
+.add-user-window{
+    display: none;
+    position: fixed;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    top: 100px;
+    background-color: beige;
+    border: 2px solid darkgrey;
+    border-radius: 5%;
+    padding: 10px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+ .error {
+    margin: 20px;
+    color: red;
+ }
+.grey{
+    background-color: aqua;
+}
+.flymenu{
+    border: 1px solid #ced4da;
+    max-width: 100%;
+    border-radius: 0rem 0rem 0.375rem 0.375rem;
+    position: absolute;
+    background-color: aliceblue;
+    /* top: 2.18em; */
+    z-index: 100;
+    margin-left: 1px;
+    white-space: nowrap;
+    
+}
+.temps{
+    cursor: pointer;
+    line-height: 1em;
+    margin: 2px;
+    
+}
+.flymenu p:nth-child(2n){
+    background-color: beige;
+}

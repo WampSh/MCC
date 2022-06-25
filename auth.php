@@ -38,5 +38,54 @@
     <!-- Пакет JavaScript с Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="script.js"></script>
+<script>
+    // change reqst auth
+    regon.addEventListener('click', function input(){
+    if (regon.textContent == 'Зарегистрироваться'){
+        reg.style.display = "block";
+        regbtn.setAttribute('value', 'Регистрация');
+        regon.innerHTML = 'Войти';
+        label.innerHTML = "Регистрация";
+        auth.checked = false;
+    } else {
+        reg.style.display = "none";
+        regbtn.setAttribute('value', 'Войти');
+        regon.innerHTML = 'Зарегистрироваться';
+        label.innerHTML = "Авторизация";
+        auth.checked = true;
+    }
+})
+
+//Send form
+authform.onsubmit = function(event){
+    event.preventDefault();
+    sendForm(authform); 
+}
+let cattemp = [];
+function sendForm(form){
+    let formData = new FormData(form);
+    fetch(form.action, {
+        method: form.method,
+        body: formData,
+    })
+    .then((response) => {
+        if (response.ok){
+            return response.json();
+        } else {
+            console.error("Ошибка HTTP: " + response.status);
+        }
+    })
+    .then((result) => {
+        if (result != "ok"){
+            //cattemp = json_decode(result);
+            console.log(result[2]);
+            cattemp = result;
+            location.href = "index.php";
+        } else {
+          console.log("Ошибка");
+        }
+    })
+}
+</script>
 </body>
 </html>

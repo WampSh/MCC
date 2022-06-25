@@ -16,19 +16,14 @@
         <h2 class="m-3 mb-5">Какой картой лучше платить</h2>
     </head>
     <main>
-       
-            <div class="allert"><H1>Пользователь <?php echo $_SESSION['username'] ?></H1></div>
       
         <div class="main">
-        <form action="rqstlisten.php" method="post">
+        <form action="rqstsql.php" method="post">
             <h3>Поиск по категории покупки:</h3>
             <div class="cat-search">
-                <div class="input-group">
-                    <select class="form-select" name="cat">
-                        <option value="1">Супермаркет</option>
-                        <option value="2">Спорт товары</option>
-                        <option value="3">Развлечения</option>
-                    </select>
+                <div class="shop-search">
+                    <input class="catt form-input" type="text" name="cat">
+                    <table class="flymenu"></table>
                 </div>
             </div>
             <br>
@@ -36,11 +31,8 @@
             <h3>Поиск по магазину:</h3>
             <div class="shop-search">
                 <div class="input-group">
-                    <select class="form-select" name="shop">
-                        <option value="1">д.26 к.1</option>
-                        <option value="Вкусняшка">"Вкусняшка" 28 к.1</option>
-                        <option value="Дикси">Дикси</option>
-                    </select>
+                    <input class="shop form-input" type="text" name="shop">
+                    <table class="flymenu"></table> 
                 </div>
             </div>
             <br>
@@ -60,19 +52,38 @@
 
             <h3>Поиск по MCC:</h3>        
             <div class="mcc-search">
-                    <input class="form-select form-input" type="text" name="mcc">
+                    <input class="form-input mcc" type="text" name="mcc">
                     <input class="btn-outline-secondary btn mt-3" type="submit" value="Найти">
                     <a href="addshop.php" class="add-shop btn-outline-secondary btn mt-3">Добавить магазин</a>
-                    <a href="addcard.php" class="add-shop btn-outline-secondary btn mt-3">Добавить карту</a>
-                    <a href="auth.php" class="add-shop btn-outline-secondary btn mt-3">Войти</a>
+                    <a href="addcard.php" class="add-card btn-outline-secondary btn mt-3">Добавить карту</a>
+                    <a href='#' class="add-user btn-outline-secondary btn mt-3">Войти</a>
             </div>
         </form>
-        
+        <!-- Открываем окно регистрации пользователя -->
+
+        <div class="add-user-window">
+        <h2 class="label-auth m-3 mb-5">Авторизация</h2>
+            <form action="authobr.php" method="POST" class="form">
+                <Label>Введите логин:</Label>
+                <input class="form-select form-input" type="text" name="username" placeholder="Введите логин">
+                <Label>Введите пароль:</Label>
+                <input class="form-select form-input" type="password" name="pass">
+                <div class="reg">
+                    <Label>Повторите пароль:</Label>
+                    <input class="form-select form-input" type="password" name="checkpass">
+                </div>
+                <input class='hiden' type="checkbox" name="auth" checked>
+                <input class="regbtn btn btn-outline-secondary mt-3" type="submit" value="Войти">
+                <span class="error"></span>
+
+            </form>
+            <div class="regon">Зарегистрироваться</div>
 
         </div>
+
     </main>
     <footer>
-
+   
     </footer>
     <!-- Пакет JavaScript с Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
