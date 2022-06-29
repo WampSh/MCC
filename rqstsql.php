@@ -11,10 +11,13 @@ $user = $_SESSION['username'];
 
 // ------------------------  Поиск по МСС  --------------------------------
 if (strlen($mcc) == 4){
-    $resultcard = $mysqli->query("SELECT * FROM `cards` WHERE `user` = '$user' AND `bonusmcc` = '$mcc'")->fetch_assoc();
+    $resultcard = $mysqli->query("SELECT * FROM `cards` WHERE `user` = '$user' AND `bonusmcc` = '$mcc'");
     if (!isset($resultcard)){
         echo "Подходящей карты не найдено";
-    } else exit(json_encode($resultcard));
+    } else {
+        for($result = []; $row = $resultcard->fetch_assoc(); $result[] = $row);
+        exit(json_encode($result));
+    }
 }
 
 // -------------------  Поиск по категории ---------------------------------
@@ -22,7 +25,8 @@ elseif(strlen($cat) >= 2){
     $resultcard = $mysqli->query("SELECT * FROM `cards` WHERE `user` = '$user' AND `cat` = '$cat'")->fetch_assoc();
     if (!$resultsearch){
         echo "Подходящей карты не найдено";
-    } else var_dump(json_encode($resultcard));
+    } else echo "Поиск по КАТЕГОРИИ";
+    // } else var_dump(json_encode($resultcard));
 }
 
 // ------------------- Поиск по магазину ----------------------------------
@@ -34,11 +38,7 @@ elseif (strlen($shop) >= 2){
     $resultcard = $mysqli->query("SELECT * FROM `cards` WHERE `user` = '$user' AND `mcc` = '$mcc'")->fetch_assoc();
     if (!$resultcard){
         echo "Подходящей карты не найдено";
-    } else var_dump(json_encode($resultcard + $resultshop));
+    } else echo "Поиск по МАГАЗИНУ";
+    // } else var_dump(json_encode($resultcard + $resultshop));
 }
-
 ?>
-<!-- 
-wamps_mcc
-mcc_search
-%DN0hJuH -->

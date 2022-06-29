@@ -17,17 +17,14 @@ if (empty($username) || empty($password)){
 
     if (isset($result) && password_verify($password, $result['password'])){
         $_SESSION['username'] = $result['username'];
-        exit(json_encode(array("OK" => "ok")));
-        // $cattemp = $mysqli -> query("SELECT * FROM `mcc_codes` WHERE 1");
-        // for($catsend = []; $row = $cattemp->fetch_assoc(); $catsend[] = $row);
-        // exit(json_encode($catsend));
+        exit(json_encode(array("OK" => "ok", "username" => $result['username'])));
     } else exit(json_encode(array("error" =>"Не верный логин или пароль")));
 } elseif ($auth == false && $password == $checkpass){
     $password = password_hash($password, PASSWORD_BCRYPT);
     $result = $mysqli -> query("INSERT INTO `users` (`username`, `password`) VALUES ('$username', '$password')");
     if ($result){
         $_SESSION['username'] = $result['username'];
-        exit(json_encode(array("error" => "ok")));
+        exit(json_encode(array("OK" => "ok", "username" => $result['username'])));
     } else exit(json_encode(array("error" => "Ошибка базы данных")));
 } else exit (json_encode(array("error" => "Пароли не совпадают")));
 ?>
